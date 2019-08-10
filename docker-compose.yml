@@ -1,0 +1,47 @@
+version: '3'
+services:
+
+  mongodb:
+    image: mongo
+    container_name: track-mongodb
+    ports:
+      - 27017:27017
+    restart: always
+    network_mode: host
+
+  api-gateway:
+    build: api-gateway-pattern/.
+    container_name: api-gateway
+    network_mode: host
+    ports:
+      - 8084:8084
+
+  config-server:
+    build: config-server/.
+    container_name: config-server
+    network_mode: host
+#    network_mode: host
+    ports:
+      - 8085:8085
+
+  eureka-server:
+    build: eureka-server/.
+    container_name: eureka-server
+    network_mode: host
+    ports:
+      - 8050:8050
+
+  track-service:
+    build: track-service/.
+    container_name: track-service
+    restart: always
+    network_mode: host
+    ports:
+      - 8089:8089
+
+  user-service:
+    build: user-service/.
+    container_name: user-service
+    network_mode: host
+    ports:
+      - 8090:8090
