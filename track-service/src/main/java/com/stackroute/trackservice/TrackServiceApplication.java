@@ -14,7 +14,7 @@ import org.springframework.context.annotation.PropertySource;
 @EnableEurekaClient
 public class TrackServiceApplication
 {
-	private static Logger logger = (Logger) LoggerFactory.getLogger(TrackServiceApplication.class);
+	private static Logger logger = LoggerFactory.getLogger(TrackServiceApplication.class);
 
 	public static void main(String[] args)
 	{
@@ -23,6 +23,6 @@ public class TrackServiceApplication
 		logger.debug("This is Debug Message");
 		logger.info("This is an Info Message");
 		logger.warn("This is a Warn Message");
-		logger.error("This is an error Message");
+		logger.error("This is an Error Message");
 	}
 }
